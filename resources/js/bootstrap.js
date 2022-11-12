@@ -33,3 +33,13 @@ window.Echo = new Echo({
     encrypted: false,
     enabledTransports: ['ws', 'wss']
 });
+
+window.Echo.channel('events').listen('RealTimeMessage', (e) => console.log('RealTimeMessage: ' + e.message));
+
+// console.log(Echo);
+
+
+
+
+
+
