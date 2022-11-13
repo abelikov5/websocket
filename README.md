@@ -1,5 +1,6 @@
 ## WebSocket Chat on Laravel
 
+Project works with Laravel Sail, please make sure you have all neccessary to work on this. 
 
 
 
