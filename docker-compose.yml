@@ -2,6 +2,7 @@
 version: '3'
 services:
     laravel.test:
+        container_name: laravel_magnit
         build:
             context: ./vendor/laravel/sail/runtimes/8.1
             dockerfile: Dockerfile
@@ -24,33 +25,81 @@ services:
         networks:
             - sail
         depends_on:
-            - mysql
+            - postgres
             - redis
             - meilisearch
             - mailhog
-            - selenium
-    mysql:
-        image: 'mysql/mysql-server:8.0'
-        ports:
-            - '${FORWARD_DB_PORT:-3306}:3306'
-        environment:
-            MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
-            MYSQL_ROOT_HOST: "%"
-            MYSQL_DATABASE: '${DB_DATABASE}'
-            MYSQL_USER: '${DB_USERNAME}'
-            MYSQL_PASSWORD: '${DB_PASSWORD}'
-            MYSQL_ALLOW_EMPTY_PASSWORD: 1
-        volumes:
-            - 'sail-mysql:/var/lib/mysql'
-            - './vendor/laravel/sail/database/mysql/create-testing-database.sh:/docker-entrypoint-initdb.d/10-create-testing-database.sh'
+            # - selenium
+    # mysql:
+    #     image: 'mysql/mysql-server:8.0'
+    #     ports:
+    #         - '${FORWARD_DB_PORT:-3306}:3306'
+    #     environment:
+    #         MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
+    #         MYSQL_ROOT_HOST: "%"
+    #         MYSQL_DATABASE: '${DB_DATABASE}'
+    #         MYSQL_USER: '${DB_USERNAME}'
+    #         MYSQL_PASSWORD: '${DB_PASSWORD}'
+    #         MYSQL_ALLOW_EMPTY_PASSWORD: 1
+    #     volumes:
+    #         - 'sail-mysql:/var/lib/mysql'
+    #         - './vendor/laravel/sail/database/mysql/create-testing-database.sh:/docker-entrypoint-initdb.d/10-create-testing-database.sh'
+    #     networks:
+    #         - sail
+    #     healthcheck:
+    #         test: ["CMD", "mysqladmin", "ping", "-p${DB_PASSWORD}"]
+    #         retries: 3
+    #         timeout: 5s
+
+    postgres:
+        image: postgres:13.3
+        container_name: postgres
+        restart: always
         networks:
             - sail
-        healthcheck:
-            test: ["CMD", "mysqladmin", "ping", "-p${DB_PASSWORD}"]
-            retries: 3
-            timeout: 5s
+        environment:
+            POSTGRES_PASSWORD: admin
+            POSTGRES_USER: admin
+            POSTGRES_DB: laravel
+        ports:
+            - "5432:5432"
+
+    pgadmin:
+        container_name: pgadmin
+        image: dpage/pgadmin4:5.7
+        environment:
+            PGADMIN_DEFAULT_EMAIL: "admin@mail.ru"
+            PGADMIN_DEFAULT_PASSWORD: "admin"
+            PGADMIN_CONFIG_SERVER_MODE: "False"
+        ports:
+            - "5050:80"
+        restart: unless-stopped
+        networks:
+            - sail
+        # phpmyadmin:
+        #     image: phpmyadmin
+        #     restart: always
+        #     networks:
+        #     - sail
+        #     ports:
+        #     - 8080:80
+        #     environment:
+        #     - PMA_HOST=db
+
+        # db:
+        # image: 'mysql/mysql-server:8.0'
+        # ports:
+        #     - '5506:3306'
+        # restart: unless-stopped
+        # networks:
+        #     - sail
+        # environment:
+        #     MYSQL_USER: admin
+        #     MYSQL_PASSWORD: admin
+        #     MYSQL_ROOT_PASSWORD: admin
     redis:
         image: 'redis:alpine'
+        container_name: redis
         ports:
             - '${FORWARD_REDIS_PORT:-6379}:6379'
         volumes:
@@ -61,6 +110,7 @@ services:
             test: ["CMD", "redis-cli", "ping"]
             retries: 3
             timeout: 5s
+
     meilisearch:
         image: 'getmeili/meilisearch:latest'
         ports:
