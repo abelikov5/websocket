@@ -1,8 +1,11 @@
 ## WebSocket Chat on Laravel
 
-Project works with Laravel Sail, please make sure you have all neccessary to work on this. 
+Project works with Laravel Sail, please make sure you have all neccessary to work on [this](https://laravel.com/docs/9.x/installation). 
 
+## Start project
 
+- Download [project](https://github.com/abelikov5/websocket.git)
+- Make sure you have Docker [installed](https://docs.docker.com/engine/install/ubuntu/) and run at your terminal
 
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
