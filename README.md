@@ -4,8 +4,8 @@ Project works with Laravel Sail, please make sure you have all neccessary to wor
 
 ## Start project
 
-# Download [project](https://github.com/abelikov5/websocket.git)
-# Make sure you have Docker [installed](https://docs.docker.com/engine/install/ubuntu/) and run at your terminal the following
+Download [project](https://github.com/abelikov5/websocket.git)
+Make sure you have Docker [installed](https://docs.docker.com/engine/install/ubuntu/) and run at your terminal the following
 
 ```
 # allias for Sail
