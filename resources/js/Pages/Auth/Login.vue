@@ -39,8 +39,6 @@ const submit = () => {
     });
 };
 
-// Echo.channel('events').listen('RealTimeMessage', (e) => console.log('RealTimeMessage: ' + e.message));
-
 </script>
 
 <style scoped>
@@ -61,7 +59,7 @@ const submit = () => {
         </template>
 
         <div class="mt-4 font-medium text-lm mb-4" style="text-align: center;">
-            Please login to MagnitChat or make <Link :href="route('register')"> registration </Link>
+            Please login to MagnitChat or make <Link :href="route('register')" style="text-decoration: underline;"> registration </Link>
         </div>
 
         <div v-if="status" class="mb-4 font-medium text-sm text-green-600">

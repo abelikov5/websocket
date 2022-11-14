@@ -12,7 +12,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class RealTimeMessage implements ShouldBroadcast
+class ChatMessage implements ShouldBroadcast
 {
     use SerializesModels;
 
@@ -26,5 +26,15 @@ class RealTimeMessage implements ShouldBroadcast
     public function broadcastOn(): Channel
     {
         return new Channel('events');
+    }
+
+//    public function broadcastAs() {
+//        return 'chat-message';
+//    }
+
+    public function broadcastWith() {
+        return [
+          'message' => $this->message
+        ];
     }
 }
