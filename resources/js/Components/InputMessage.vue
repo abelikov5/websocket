@@ -98,7 +98,7 @@ export default {
           this.error_mess = '';
         },
         verified_message() {
-            let regExp = '^[a-zA-Z]+$';
+            let regExp = '^[a-zA-Z0-9\s?!, ]+$';
             if (this.message.search(regExp) === -1) {
                 this.error_mess = 'Please verify you message, and try again! Only latin characters are valid';
                 setTimeout(this.error_mess_off, 5000);
