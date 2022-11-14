@@ -28,7 +28,10 @@ const submit = () => {
 
     <AuthenticationCard>
         <template #logo>
-            <AuthenticationCardLogo />
+            <div style="width: 100px;">
+                <AuthenticationCardLogo />
+            </div>
+
         </template>
 
         <form @submit.prevent="submit">
