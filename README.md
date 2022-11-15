@@ -25,6 +25,12 @@ sail up -d
 # run all migrations
 sail artisan migrate
 
+# run composer
+sail composer install
+
+# and npm install
+sail npm i
+
 # start websocket server on :6001
 sail artisan websockets:serve
 
