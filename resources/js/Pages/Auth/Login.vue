@@ -15,15 +15,6 @@ defineProps({
     status: String,
 });
 
-// console.log(Inertia.page.props.user.name);
-// onBeforeMount(() => {
-//     if(Inertia.page.props.user) {
-//         window.location.href = '/dashboard';
-
-//         console.log(Inertia.page.props.user.name);
-//     }
-// })
-
 const form = useForm({
     email: '',
     password: '',

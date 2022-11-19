@@ -33,6 +33,12 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
+    Route::get('/users', function () {
+        return Inertia::render('Users');
+    })->name('users');
+    Route::get('/', function () {
+        return redirect('/dashboard');
+    });
     Route::post('/chat-message', function (\Illuminate\Http\Request $request) {
         if(isset($request->message)) {
             event(new App\Events\ChatMessage($request->message));

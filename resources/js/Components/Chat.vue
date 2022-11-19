@@ -34,61 +34,53 @@ export default {
                     <div class="user_name">{{ el.user_name }}:</div>
                     <div class="user_message">{{ el.message }}</div>
                 </div>
-
-
             </div>
             <div id="scroll_anchor"></div>
-
         </div>
-
     </div>
-
-
 </template>
 
-<style >
-    #scroll_anchor {
-        height: 10px;
-    }
-    /*.chat_message:last-child {*/
-    /*    margin-bottom: 20px;*/
-    /*}*/
+<style>
+#scroll_anchor {
+    height: 10px;
+}
 
-    .chat_main::-webkit-scrollbar {
-        width: 8px;               /* ширина всей полосы прокрутки */
-        border-radius: 20px;
-    }
+.chat_main::-webkit-scrollbar {
+    width: 8px; /* ширина всей полосы прокрутки */
+    border-radius: 20px;
+}
 
-    .chat_main::-webkit-scrollbar-track {
-        background: white;        /* цвет зоны отслеживания */
-    }
+.chat_main::-webkit-scrollbar-track {
+    background: white; /* цвет зоны отслеживания */
+}
 
-    .chat_main::-webkit-scrollbar-thumb {
-        background-color: whitesmoke;    /* цвет бегунка */
-        border-radius: 20px;       /* округлось бегунка */
-        border: 1px solid #e3e3e3;  /* отступ вокруг бегунка */
-    }
-    .chat_main {
-        width: 100%;
-        height: 250px;
-        overflow-y: scroll;
+.chat_main::-webkit-scrollbar-thumb {
+    background-color: whitesmoke; /* цвет бегунка */
+    border-radius: 20px; /* округлось бегунка */
+    border: 1px solid #e3e3e3; /* отступ вокруг бегунка */
+}
 
-    }
+.chat_main {
+    width: 100%;
+    height: 250px;
+    overflow-y: scroll;
 
-    .chat_message {
-        height: 100%;
-        padding: 0.5rem 0.75rem;
-    }
+}
 
-    .d_flex {
-        display: flex;
-    }
+.chat_message {
+    height: 100%;
+    padding: 0.5rem 0.75rem;
+}
 
-    .user_name {
-        margin-right: 20px;
-        color: #da0810;
-        font-weight: bold;
-    }
+.d_flex {
+    display: flex;
+}
+
+.user_name {
+    margin-right: 20px;
+    color: #da0810;
+    font-weight: bold;
+}
 </style>
 
 
