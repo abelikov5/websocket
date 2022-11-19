@@ -1,6 +1,9 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Foundation\Application;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -33,19 +36,28 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
+
     Route::get('/users', function () {
-        return Inertia::render('Users');
+        return Inertia::render('Users',  [
+            'users' => User::all(),
+        ]);
     })->name('users');
+
+    Route::get('/users_test', function () {
+        return Inertia::render('UserTest',  [
+            'users' => User::all(),
+        ]);
+    })->name('users_test');
+
     Route::get('/', function () {
         return redirect('/dashboard');
     });
-    Route::post('/chat-message', function (\Illuminate\Http\Request $request) {
+    Route::post('/chat-message', function (Request $request) {
         if(isset($request->message)) {
             event(new App\Events\ChatMessage($request->message));
         }
         return null;
     });
-
 });
 
 

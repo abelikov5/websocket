@@ -20,6 +20,17 @@ export default {
     },
     mounted() {
         window.Echo.channel('events').listen('ChatMessage', (e) => this.show_message(e.message));
+
+        window.Echo.join(`events`)
+            .here((users) => {
+                console.log('heare', users)
+            })
+            .joining((user) => {
+                console.log('joing', user);
+            })
+            .leaving((user) => {
+                console.log("leaving", user);
+            })
     }
 
 }
@@ -30,7 +41,7 @@ export default {
     <div class="chat_main bg-white overflow-hidden shadow-xl sm:rounded-lg">
         <div class="chat_message">
             <div v-for="el in show">
-                <div class="user_message d_flex">
+                <div class="user_message flex">
                     <div class="user_name">{{ el.user_name }}:</div>
                     <div class="user_message">{{ el.message }}</div>
                 </div>
@@ -70,16 +81,6 @@ export default {
 .chat_message {
     height: 100%;
     padding: 0.5rem 0.75rem;
-}
-
-.d_flex {
-    display: flex;
-}
-
-.user_name {
-    margin-right: 20px;
-    color: #da0810;
-    font-weight: bold;
 }
 </style>
 

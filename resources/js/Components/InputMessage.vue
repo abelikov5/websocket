@@ -5,7 +5,7 @@
                 {{ error_mess }}
             </div>
         </div>
-        <div class="wrap_input d_flex bg-white overflow-hidden shadow-xl sm:rounded-lg" >
+        <div class="wrap_input flex bg-white overflow-hidden shadow-xl sm:rounded-lg" >
             <input v-model="message" class="chat_input"
                    placeholder="Write a message ...." v-on:keyup.enter="verified_message">
             <div class="input_send"  @click="verified_message">

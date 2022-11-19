@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.user_name {
+    margin-right: 20px;
+    color: #da0810;
+    font-weight: bold;
+}

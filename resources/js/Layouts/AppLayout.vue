@@ -25,8 +25,13 @@ const switchToTeam = (team) => {
 };
 
 const logout = () => {
+    window.Echo.leave(`events`);
     Inertia.post(route('logout'));
+
+
 };
+
+
 </script>
 
 <template>
@@ -51,12 +56,12 @@ const logout = () => {
 
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
+                                <NavLink :href="route('dashboard')" :active="route().current('dashboard')" :link="true">
                                     Dashboard
                                 </NavLink>
                             </div>
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <NavLink :href="route('users')" :active="route().current('users')">
+                                <NavLink :href="route('users')" :active="route().current('users')" >
                                     Users
                                 </NavLink>
                             </div>
