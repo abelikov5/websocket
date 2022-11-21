@@ -18,7 +18,6 @@
                         online
                     </div>
                 </div>
-
             </div>
         </div>
     </AppLayout>
@@ -48,7 +47,7 @@ export default {
         },
         set_online(id, offline = true) {
             this.all_users.forEach(el => {
-                if(el.id === id) {
+                if (el.id === id) {
                     el.online = offline;
                 }
             })
@@ -57,8 +56,7 @@ export default {
             if (Inertia.page.props.user.id === user.id) {
                 return user.name + ' (you)';
             }
-
-           return user.name;
+            return user.name;
         }
     },
     mounted() {
@@ -71,7 +69,7 @@ export default {
                 this.total = join_users.length;
             })
             .joining((user) => {
-                if(!this.all_users.find(el => el.id === user.id)) {
+                if (!this.all_users.find(el => el.id === user.id)) {
                     this.all_users.push(user);
                 }
                 this.total++;
@@ -82,7 +80,6 @@ export default {
                 this.total--;
             })
     }
-
 }
 
 </script>
@@ -96,19 +93,23 @@ export default {
     display: flex;
     justify-content: right;
 }
+
 .wrap_users {
     width: 800px;
     margin: 20px auto;
     padding: 10px;
 }
+
 .user_email {
     color: #9ca3af;
     font-size: 12px;
 }
+
 .user_item {
     margin-bottom: 10px;
     justify-content: space-between;
 }
+
 .last_visit {
     color: #1f2937;
     font-size: 13px;

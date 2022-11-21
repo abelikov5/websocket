@@ -1,5 +1,7 @@
 ## WebSocket Chat on Laravel
 
+Simple Chat based on Laravel Websocket. With online users diplayed.
+
 Project works with Laravel Sail, please make sure you have all neccessary to work on [this](https://laravel.com/docs/9.x/installation). 
 
 ## Start project
@@ -40,7 +42,11 @@ sail npm run dev
 ```
 
 ## Project ScreenCast
+
 [YouTube](https://youtu.be/vtupNdpTn-s)
+
+[YouTube users_tab](https://youtu.be/UCzuHCfAUng)
+
 
 ## License
 
